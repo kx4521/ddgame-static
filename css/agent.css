@@ -1,0 +1,654 @@
+main, div, p, li{
+    font-family: "Microsoft YaHei", "SimSun", "\5FAE\8F6F\96C5\9ED1", "\5B8B\4F53";
+}
+li>a{
+    font-family: "MicrosoftYaHei-Bold", "Microsoft YaHei", "SimSun", "\5FAE\8F6F\96C5\9ED1", "\5B8B\4F53";
+}
+.show-row {
+    display: inline-block;
+    overflow: hidden;
+}
+.show-role-cell, .account-role-cell{
+    display: inline-block;
+    cursor: pointer;
+}
+.show-role-cell:hover {
+    -webkit-box-shadow: 0 0 8px lightgray;
+    -moz-box-shadow: 0 0 8px lightgray;
+    box-shadow: 0 0 8px lightgray;
+}
+.account-role-cell{
+    overflow: hidden;
+    /*margin-right: 2px;*/
+}
+/**************************游戏列表****************************/
+#games_container {
+}
+#games_container a {
+    text-decoration: none;
+    color: #212529;
+    display: inline-block;
+}
+#games_container h3{
+    display: inline-block;
+    height: 33px;
+    line-height: 45px;
+    font-style: normal;
+    font-size: 1.25rem;
+}
+#hot_games, #new_games {
+    margin-bottom: 10px;
+}
+#hot_games:hover .arrow-transparent, #new_games:hover .arrow-transparent {
+    opacity:1;
+    filter:alpha(opacity=100);
+}
+#hot_container,#new_container{
+    height: 135px;
+    position: relative;
+    width: 100%;
+    margin:0 auto;
+    overflow: hidden;
+}
+.bgi{
+    height: 135px;
+    width: 370px;
+    display: inline-block;
+    z-index: 10;
+    position: absolute;
+    background-color: white;
+    overflow: hidden;
+}
+.games_list {
+    height: 135px;
+    position: absolute;
+    top: 0;
+    /*width: 4200px;*/
+    z-index: 1;
+}
+.game-list-cell {
+    width: 112.5px;
+    height: 135px;
+    overflow: hidden;
+    display: inline-block;
+    text-align: center;
+}
+.game-icon {
+    width: 112.5px;
+    height: 97px;
+    overflow: hidden;
+    text-align: center;
+    float: left;
+}
+.game-list-cell p.name{
+    display:table-cell;
+    vertical-align:bottom;
+    /*text-align: center;*/
+    font-size: 13px;
+    width: 99px;
+    height: 36px;
+    overflow: hidden;
+}
+.game-list-cell p.name2,.game-list-cell p.des{
+    text-align: left;
+    font-size: 13px;
+    width: 112.5px;
+    height: 20px;
+    overflow: hidden;
+    margin: 0;
+    padding-left:7.5px;
+}
+.game-list-cell p.name2,.game-list-cell p.name3{
+    /*text-align: center;*/
+}
+.game-list-cell p.des{
+    color: #8f959a;
+    margin-top:3px;
+}
+.game-list-cell p.des2{
+    color: #8f959a;
+    margin-top:7px;
+}
+.game-list-cell p.name3{
+    color: #8f959a;
+    margin-top:7px;
+}
+/*.arrow-right,.arrow-left {*/
+    /*width: 50px;*/
+    /*height: 120px;*/
+    /*display: inline-block;*/
+    /*background-color: white;*/
+    /*position: absolute;*/
+    /*top: 0;*/
+    /*z-index: 2;*/
+/*}*/
+.arrow-right,.arrow-left {
+    width: 26px;
+    height: 135px;
+    display: inline-block;
+    background-color: white;
+    position: absolute;
+    top: 0;
+    z-index: 2;
+    /*background-size: 10px 25px;*/
+}
+.arrow-img-right,.arrow-img-left{
+    display: inline-block;
+    width: 22px;
+    height: 25px;
+    /*background-size: 10px 25px;*/
+    position: absolute;
+    top: 50%;
+    opacity:0.2;
+    filter:alpha(opacity=20);
+    /*left: 6px;*/
+}
+.cursor-pointer{
+    cursor: pointer;
+}
+.arrow-right{
+    /*background: url(../img/arrow_right.png) no-repeat left center transparent;!*圆形箭头*!*/
+    /*background: url(../img/icon-right.png) no-repeat left center white;!*圆形箭头*!*/
+    right: 0;
+}
+.arrow-img-right{
+    background: url(../img/icon-right.png) no-repeat center center transparent;
+    background-size: 10px 25px;
+}
+.arrow-img-left{
+    background: url(../img/icon-left.png) no-repeat left center transparent;
+    background-size: 10px 25px;
+    left: 6px;
+}
+.arrow-left{
+    left: 370px;
+    /*background: url(../img/icon-left.png) no-repeat left center white;*/
+    /*right: 0;*/
+}
+.round-buttons{
+    position: absolute;
+    width: 370px;
+    height: 120px;
+    margin: 105px auto 0 auto;
+    text-align: center;
+    /*box-shadow: 0 0 5px green;*/
+    overflow: hidden;
+    top: 0;
+}
+.round-buttons span{
+    margin-left: 5px;
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    opacity: 0.5;
+    background-color: white;
+    text-align: center;
+    color:white;
+    cursor: pointer;
+}
+.round-buttons span.on{
+    opacity: 1;
+    width: 10px;
+    border-radius: 30%;
+}
+.star_p span{
+    position: absolute;
+    left: 8px;
+    font-size: 9px;
+    font-family: "Microsoft YaHei", "SimSun", "\5FAE\8F6F\96C5\9ED1", "\5B8B\4F53";
+    color: #34C3D2;
+    bottom: -18px;
+}
+/************layui css***************************/
+@font-face{font-family:layui-icon;src:url(./font/iconfont.eot?v=240);src:url(./font/iconfont.eot?v=240#iefix) format('embedded-opentype'),url(./font/iconfont.svg?v=240#iconfont) format('svg'),url(./font/iconfont.woff?v=240) format('woff'),url(./font/iconfont.ttf?v=240) format('truetype')}
+.layui-inline, .layui-rate li{
+    position: relative;
+    font: 9px Helvetica Neue,Helvetica,PingFang SC,Tahoma,Arial,sans-serif;
+}
+.layui-inline img{
+    display: inline-block;
+}
+.layui-rate {
+    padding: 2px 0 0 0;
+    /*font-size: 0;*/
+    margin-left: 23px;
+    position: absolute;
+    left: 11px;
+    top: 1px;
+}
+.layui-rate li i.layui-icon {
+    font-size: 9px;
+    color: #34C3D2;
+    /*margin-right: 5px;*/
+    transition: all .3s;
+    -webkit-transition: all .3s;
+}
+.layui-rate, .layui-rate * {
+    display: inline-block;
+    vertical-align: middle;
+}
+.layui-icon {
+    font-family: layui-icon!important;
+    font-size: 16px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.layui-icon-rate-solid:before {
+    content: "\e67a";
+}
+.layui-icon-rate:before {
+    content: "\e67b";
+}
+.layui-icon-rate-half:before {
+    content: "\e6c9";
+}
+/*****************************************************************/
+.ar-name{
+    text-align: center;
+    font-size: 13px;
+    line-height: 14px;
+    overflow: hidden;
+    height: 28px;
+}
+.recommends, .roles-selected{
+    width: 100%;
+    margin: 10px auto;
+    padding: 5px;
+    border: 1px solid lightgray;
+}
+.roles-selected{
+    min-height: 40px;
+}
+.recommend-title{
+    width: 100%;
+    font-size: 25px;
+    text-align: center;
+}
+.recommend-area{
+    width: 2000px;
+}
+.div-role-selected{
+    border: 3px solid #212529;
+    opacity:0.5;
+    filter:Alpha(opacity=50); /* IE8 以及更早的浏览器 */
+}
+.account-role-selected{
+    border: 2px solid #212529;
+}
+.tool-bar{
+    text-align: right;
+}
+.ui-hot{
+    display: inline-block;
+    width: 30px;
+    height: 27px;
+    background-image: url("/app/web/img/hot_sm.png");
+    background-position: bottom;
+    background-repeat: no-repeat;
+    -webkit-background-size: 24px 29px;
+    background-size: 24px 27px;
+    position: relative;
+    top: 4px;
+}
+.account-cell{
+    width: 100%;
+    margin: 6px 0;
+    border: 1px solid lightgray;
+}
+.account-roles-div{
+    /*margin-left: 8px;*/
+    margin-left: 4px;
+}
+.account-cell:hover{
+    background-color: #f2f2f2;
+}
+.account-bar-title{
+    width: 100%;
+    background-color: #212529;
+    color: #fff;
+    text-align: left;
+    font-size: 20px;
+    line-height: 20px;
+    height: 36px;
+}
+.role-name-p{
+    height: 35px;
+    overflow: hidden;
+    font-size: 13px;
+}
+#show-more-games:hover {
+    /*background-color: lightblue;*/
+}
+.game-cell a:hover{
+    -webkit-box-shadow:  5px 5px 8px lightgray;
+    -moz-box-shadow:  5px 5px 8px lightgray;
+    box-shadow:  5px 5px 8px lightgray;
+}
+.nav-item{
+    border: none;
+    border-radius: 0;
+}
+.nav-tabs .nav-link {
+    border: none;
+    color: #000;
+}
+.nav-tabs .nav-link:hover{
+    color: #fff;
+}
+.nav-item:hover{
+    background-color: #212529;
+    border: none;
+    color: white;
+}
+.nav-tabs .nav-link.active {
+    color: white;
+    background-color: #212529;
+    border: none;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+.copy-input {
+    width: 10px;
+    opacity:0;
+    filter:alpha(opacity=0); /* 针对 IE8 以及更早的版本 */
+}
+.copy-button{
+    font-size: 8px;
+}
+.temp-cell{
+    /*padding: 0.25rem;*/
+    padding-left: 0.25rem;
+    max-width: 100%;
+    border: 1px solid white;
+}
+.temp-cell2{
+    /*padding: 0.25rem;*/
+    max-width: 100%;
+    border: 1px solid white;
+}
+.recommend-cell{
+    display: inline-block;
+    width: 19%;
+    text-align: center;
+    margin-left: 5px;
+}
+.abt-extera{
+    display: inline-block;
+    width: 50%;
+    text-align: right;
+    height: 40px;
+    line-height: 34px;
+    float: right;
+    margin-right: 10px;
+}
+.abt-extera i{
+    font-style:normal;
+    margin-left: 15px;
+}
+/****************************/
+.nav-tabs {
+    border-bottom: 2px solid #212529;
+    font-size: 19px;
+}
+.search-con{
+    /*font-family: "MicrosoftYaHei-Bold", "Microsoft YaHei", "SimSun", "\5FAE\8F6F\96C5\9ED1", "\5B8B\4F53";*/
+    display: inline-block; width: 598px; text-align: left; font-size: 20px;line-height: 38px;
+}
+.shot-line{
+    width: 3px;
+    height: 20px;
+    display: inline-block;
+    background-color: #212529;
+    margin-right: 8px;
+    padding: 1px;
+    position: relative;
+    /*bottom: -3px;*/
+    margin-left: 5px;
+}
+.shot-line2{
+    width: 4px;
+    height: 30px;
+    display: inline-block;
+    /*background-color: #12A7B4;*/
+    background-color: #fff;
+    margin-right: 8px;
+    padding: 1px;
+    position: relative;
+    bottom: -3px;
+    margin-left: 3px;
+}
+.left-title{
+    display: inline-block;
+    height: 38px;
+    line-height: 38px;
+    font-style: normal;
+    position: relative;
+    bottom: 3px;
+}
+.left-bar{
+    display: inline-block;
+    height: 22px;
+    line-height: 22px;
+    font-style: normal;
+    position: relative;
+    bottom: 3px;
+    color: #f8f9fa;
+}
+.btn-outline-secondary,.btn-outline-success,.my-dropdown {
+    color: #212529;
+    background-color: transparent;
+    background-image: none;
+    border-color: #212529;
+}
+.btn-outline-secondary:hover,.btn-outline-success:hover,.form-control:hover {
+    background-color:#212529;
+    border-color: #212529;
+    color: #fff;
+}
+.btn-outline-secondary:active,.btn-outline-success:active {
+    background-color:#212529 !important;
+    border: 1px solid transparent !important;
+}
+select,button {
+    font-family: "Microsoft YaHei", "SimSun", "\5FAE\8F6F\96C5\9ED1", "\5B8B\4F53";
+}
+.form-control {
+    width: auto;
+    color: #212529;
+    background-color: transparent;
+    background-image: none;
+    height: calc(2.25rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    background-clip: padding-box;
+    border: 1px solid #212529;
+    border-radius: .25rem;
+    cursor: pointer;
+    font-weight: 400;
+    position:relative;
+    top: 2px;
+}
+.form-control>option::-ms-expand{ display: none; }
+.form-control:hover>option {
+    background-color: white;
+    /*background-image: none;*/
+    color: #000;
+}
+.form-control>option {
+	-moz-appearance:none; /* Firefox */
+	-webkit-appearance:none; /* Safari 和 Chrome */
+    appearance:none;
+	border: 1px solid #212529;
+}
+.form-control>option:hover {
+	background-color:#212529 !important;
+}
+.form-control:hover>option:hover {
+	background-color:#212529 !important;
+}
+/***********************************************************************/
+.select{
+    width: 200px;
+    display: inline-block;
+    color: #212529;
+    background-color: transparent;
+    background-image: none;
+    height: calc(2.25rem + 2px);
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: 400;
+    text-align: center;
+}
+
+.select_default{
+    width: 200px;
+    display: inline-block;
+    /*color: #212529;*/
+    color: #fff;
+    /*background-color: transparent;*/
+    background-color: #212529;
+    background-image: none;
+    height: calc(2.25rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 17px;
+    line-height: 1.5;
+    background-clip: padding-box;
+    border: 1px solid #212529;
+    border-radius: .25rem;
+    cursor: pointer;
+    font-weight: 400;
+    position:relative;
+    top: 2px;
+    text-align: center;
+}
+
+/*这边就是三角形的css代码，使用伪类和定位实现右三角*/
+.select_default:after{
+    content:"";
+    border-left:5px solid transparent;
+    border-right:5px solid transparent;
+    border-bottom:5px solid #fff;
+    -webkit-transform-origin:5px 2.5px;
+    -moz-transform-origin:5px 2.5px;
+    -ms-transform-origin:5px 2.5px;
+    -o-transform-origin:5px 2.5px;
+    transform-origin:5px 2.5px;
+    -webkit-transition: all .5s ease;
+     -moz-transition: all .5s ease;
+    -ms-transition: all .5s ease;
+    -o-transition: all .5s ease;
+    transition: all .5s ease;
+    position:absolute;
+    right:3px;
+    top:14px;
+    /** 箭头向下**/
+    -webkit-transform:rotate(180deg);
+     -moz-transform:rotate(180deg);
+     -ms-transform:rotate(180deg);
+    -o-transform:rotate(180deg);
+     transform:rotate(180deg);
+    /*border-bottom:5px solid #34C3D2;*/
+}
+.select_default:hover{
+    /*background-color:#34C3D2;*/
+    /*border-color: #34C3D2;*/
+    color: #fff;
+    border-radius: .25rem;
+    /*background-color:#fff;*/
+    /*border-color: #fff;*/
+    /*color: #34C3D2;*/
+}
+.select:hover{
+    /*background-color:#34C3D2;*/
+    /*border-color: #34C3D2;*/
+    /*color: #fff;*/
+    /*background-color:#fff;*/
+    /*border-color: #fff;*/
+    /*color: #34C3D2;*/
+}
+/*.select_default.rotate:after{*/
+    /*-webkit-transform:rotate(180deg);*/
+    /* -moz-transform:rotate(180deg);*/
+    /* -ms-transform:rotate(180deg);*/
+    /*-o-transform:rotate(180deg);*/
+    /* transform:rotate(180deg);*/
+    /*!*border-bottom:5px solid #34C3D2;*!*/
+    /*color: #fff;*/
+/*}*/
+.rotate{
+    /*color: #fff;*/
+    border-radius: .25rem;
+}
+.rotate:hover{
+    color: #212529;
+    background-color:#fff;
+}
+.select_item{
+    margin:0;
+    padding:0;
+    display:none;
+    list-style:none;
+}
+.select_item li{
+    width: 200px;
+    height:32px;
+    line-height:32px;
+    padding:0 10px;
+    border-top:none;
+}
+ul:last-child{
+    /*border: 1px solid #212529;*/
+    border-top: none;
+}
+.select_item li.hover{
+    /*background-color:#34C3D2 ;*/
+    /*color:white;*/
+    background-color:#fff ;
+    color:#212529;
+}
+ul.select_item{
+    position: relative;
+    top: 0;
+    right: 0;
+    width: 200px;
+    float: right;
+    z-index: 10;
+    /*background-color: white;*/
+    background-color: #212529;
+    color: #fff;
+}
+/***********************************************************************/
+
+
+
+.btn-secondary:focus {
+     box-shadow: none;
+}
+.btn-secondary:not(:disabled):not(.disabled).active:focus, .btn-secondary:not(:disabled):not(.disabled):active:focus, .show>.btn-secondary.dropdown-toggle:focus {
+    box-shadow: none;
+}
+.btn-secondary2 {
+    color: #212529;
+    background-color: #fff;
+    border-color: transparent;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    position: relative;
+    bottom: 7px;
+    min-width: 63px;
+    font-size: 15px;
+    line-height: 20px;
+}
+.btn-secondary2:hover{
+    background-color:#12A7B4;
+    border-color: transparent;
+    color: #fff;
+}
+.btn-secondary2:active{
+    background-color:#12A7B4;
+    border-color: transparent;
+}
